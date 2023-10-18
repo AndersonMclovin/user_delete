@@ -3,7 +3,7 @@
 $id = $_REQUEST["id"];
 
 // Conexión a la base de datos (debes configurar esto)
-$conexion = new mysqli("localhost", "root", "", "coordinacion");
+$conexion = new mysqli("localhost", "root", getenv('DB_PASSWORD'), "coordinacion");
 
 // Verifica la conexión
 if ($conexion->connect_error) {

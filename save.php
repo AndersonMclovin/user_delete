@@ -1,6 +1,6 @@
 <?php
 
-    $conn = new mysqli("localhost", "root", "", "coordinacion" ); 
+    $conn = new mysqli("localhost", "root", getenv('DB_PASSWORD'), "coordinacion" ); 
     if( $conn->connect_errno ) {
         echo "Falla al conectarse a Mysql ( ". $conn->connect_errno . ") " .
             $conn->connect_error ;
@@ -28,7 +28,7 @@
     }
 
 
-    if (isset( $username) && isset($nombre) &&
+    if (isset($username) && isset($nombre) &&
     isset($email) && isset($contrasena) && isset($repetir_contrasena)){      
         try {
             $sql = "INSERT INTO users VALUES (NULL, '". $username ."' , sha2( '". $contrasena ."', 256 ), '". $nombre ."', '". $email ."')";

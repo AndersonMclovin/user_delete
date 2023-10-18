@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "coordinacion");
+$conn = mysqli_connect("localhost", "root", getenv('DB_PASSWORD'), "coordinacion");
 
 if (!$conn) {
     die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());

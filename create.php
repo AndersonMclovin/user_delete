@@ -5,33 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Agregar usuario</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Crear Usuario</h1>
-        <form action="save.php" method="post">
-            <label>Username: </label>
-            <input type="text" name="username">
-            <br>
-            <label>Nombre: </label>
-            <input type="text" name="nombre">
-            <br>
-            <label>Email: </label>
-            <input type="email" name="email">
-            <br>
-            <label>Contraseña: </label>
-            <input type="password" name="contrasena">
-            <br>
-            <label>Repetir contraseña: </label>
-            <input type="password" name="repetir-contrasena">
-            <br>
-            <input type="submit" value="Guardar">
-            <input type="button" value="Volver">
-        </form>
-    </div>
+<div class="container">
+    <h1 class="mt-4">Crear Usuario</h1>
+    <form class="mt-4" action="save.php" method="post">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena">
+        </div>
+        <div class="form-group">
+            <label for="repetir-contrasena">Repetir contraseña:</label>
+            <input type="password" class="form-control" id="repetir-contrasena" name="repetir-contrasena">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="javascript:history.go(-1);" class="btn btn-secondary">Volver</a>
 
-
-
+    </form>
+</div>
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 </body>

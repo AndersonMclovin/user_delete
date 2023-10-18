@@ -1,13 +1,12 @@
 <?php
 
-    /*
-    $conn = mysqli_connect("localhost", "root", getenv('DB_PASSWORD'), "coordinacion");
-
-    if (!$conn) {
-        die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
-    }*/
-
-    include("conexion.php");
+    $conn = new mysqli("localhost", "root", getenv('DB_PASSWORD'), "coordinacion" ); 
+    if( $conn->connect_errno ) {
+        echo "Falla al conectarse a Mysql ( ". $conn->connect_errno . ") " .
+            $conn->connect_error ;
+    }else{
+        echo "Conecto";
+    }
 
 
     $username = $_POST['username'];
@@ -24,7 +23,7 @@
     if ($contrasena != $repetir_contrasena) {
         $mensaje['msj'] = "Contraseñas diferentes";
         $mensaje['estado'] = "Error";
-        echo json_encode();
+        echo json_encode($mensaje);
         return;
     }
 

@@ -18,9 +18,14 @@ $password = $_POST['password'];
 
 
 if ($username !=null && $nombre !=null &&
-$email != null && $password !=null && $userID!=null){
+$email != null && $userID!=null){
     // Actualiza el registro en la base de datos
-    $sql = "UPDATE USERS SET username='$username', email='$email', nombre='$nombre', password= sha2('$password', 256) WHERE id=$userID";
+    if (count($password) > 0) {
+        $sql = "UPDATE USERS SET username='$username', email='$email', nombre='$nombre', password= sha2('$password', 256) WHERE id=$userID";
+    }else{
+        $sql = "UPDATE USERS SET username='$username', email='$email', nombre='$nombre' WHERE id=$userID";
+    }
+    
     if ($conexion->query($sql) === TRUE) {
         echo "Usuario actualizado correctamente.";
         header("Location: index.php");

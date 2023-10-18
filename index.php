@@ -41,7 +41,7 @@ $result = mysqli_query($conn, $sql);
                     <td><?php echo $row["email"]; ?></td>
                     <td>
                         <button class="btn btn-primary" id="btnEditar"><a id="btn-editar" href="formularioUp.php?id=<?php echo $row["id"]; ?>">Editar</a></button>
-                        <button class="btn btn-danger" id="btnEditar"><a id="btn-eliminar" href="delete.php?id=<?php echo $row["id"]; ?>">Eliminar</a></button>
+                        <button class="btn btn-danger" id="btnEliminar<?php echo $row["id"]; ?>">Eliminar</button>
                     </td>
                 </tr>
             <?php } ?>
@@ -50,8 +50,16 @@ $result = mysqli_query($conn, $sql);
 </div>
     <script>
         $(document).ready(function() {
-            $('table').DataTable();
+
+            $('button[id^="btnEliminar"]'<?php echo $row["id"]; ?>).click(function() {
+                var id = $(this).attr('id').substr(11); 
+                if (window.confirm("Esta seguro de eliminar?")) {
+                    document.location.href = 'delete.php?id='+id;
+                }
+            }); 
         });
+        
+        
     </script>
 </body>
 </html>

@@ -1,9 +1,12 @@
 <?php
+/*
 $conn = mysqli_connect("localhost", "root", getenv('DB_PASSWORD'), "coordinacion");
 
 if (!$conn) {
     die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
-}
+}*/
+
+include("conexion.php");
 
 $sql = "SELECT * FROM users";
 $result = mysqli_query($conn, $sql);

@@ -1,11 +1,13 @@
 <?php
 // Conexión a la base de datos (debes configurar esto)
-$conexion = new mysqli("localhost", "root", getenv('DB_PASSWORD'), "coordinacion");
+/*
+$conn = mysqli_connect("localhost", "root", getenv('DB_PASSWORD'), "coordinacion");
 
-// Verifica la conexión
-if ($conexion->connect_error) {
-    die("Error de conexión a la base de datos: " . $conexion->connect_error);
-}
+if (!$conn) {
+    die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
+}*/
+
+include("conexion.php");
 
 // Obtén los datos del formulario
 
@@ -26,7 +28,7 @@ $email != null && $userID!=null){
         $sql = "UPDATE USERS SET username='$username', email='$email', nombre='$nombre' WHERE id=$userID";
     }
     
-    if ($conexion->query($sql) === TRUE) {
+    if ($conn->query($sql) === TRUE) {
         echo "Usuario actualizado correctamente.";
         header("Location: index.php");
         exit();

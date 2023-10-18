@@ -40,8 +40,8 @@ $result = mysqli_query($conn, $sql);
                     <td><?php echo $row["nombre"]; ?></td>
                     <td><?php echo $row["email"]; ?></td>
                     <td>
-                        <button class="btn btn-primary" id="btnEditar"><a href="formularioUp.php?id=<?php echo $row["id"]; ?>">Editar</a></button>
-                        <button class="btn btn-danger" id="btnEditar"><a href="delete.php?id=<?php echo $row["id"]; ?>">Eliminar</a></button>
+                        <button class="btn btn-primary" id="btnEditar"><a id="btn-editar" href="formularioUp.php?id=<?php echo $row["id"]; ?>">Editar</a></button>
+                        <button class="btn btn-danger" id="btnEditar"><a id="btn-eliminar" href="delete.php?id=<?php echo $row["id"]; ?>">Eliminar</a></button>
                     </td>
                 </tr>
             <?php } ?>
@@ -56,6 +56,11 @@ $result = mysqli_query($conn, $sql);
 </body>
 </html>
 
+<style>
+    #btn-editar, #btn-eliminar{
+        color : white;
+    }
+</style>
 <?php
 mysqli_close($conn);
 ?>

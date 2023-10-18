@@ -16,10 +16,12 @@ $nombre = $_POST['nombre'];
 $password = $_POST['password'];
 
 // Actualiza el registro en la base de datos
-$sql = "UPDATE USERS SET username='$username', email='$email', nombre='$nombre', password='$password' WHERE id=$userID";
+$sql = "UPDATE USERS SET username='$username', email='$email', nombre='$nombre', password= sha2('$password', 256) WHERE id=$userID";
 
 if ($conexion->query($sql) === TRUE) {
     echo "Usuario actualizado correctamente.";
+    header("Location: index.php");
+    exit();
 } else {
     echo "Error al actualizar usuario: " . $conexion->error;
 }

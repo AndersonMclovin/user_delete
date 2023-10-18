@@ -11,6 +11,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $sql = "DELETE FROM users WHERE id = $user_id";
     if (mysqli_query($conn, $sql)) {
         echo "Usuario eliminado correctamente.";
+        header("Location: index.php");
+        exit();
     } else {
         echo "Error al eliminar usuario: " . mysqli_error($conn);
     }

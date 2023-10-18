@@ -32,11 +32,11 @@
     isset($email) && isset($contrasena) && isset($repetir_contrasena)){      
         try {
             $sql = "INSERT INTO users VALUES (NULL, '". $username ."' , sha2( '". $contrasena ."', 256 ), '". $nombre ."', '". $email ."')";
-        
             if ($conn->query($sql) === TRUE) {
-                echo "Paso if";
                 $mensaje["msg"]="Se Almaceno Correcto";
                 $mensaje["estado"]="OK";
+                header("Location: index.php");
+                exit();
                 echo json_encode($mensaje);
             } else {
                 $mensaje["msg"]="No Se Almaceno la información";

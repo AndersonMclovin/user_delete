@@ -20,10 +20,10 @@
             <input type="email" name="email">
             <br>
             <label>Contraseña: </label>
-            <input type="text" name="contrasena">
+            <input type="password" name="contrasena">
             <br>
             <label>Repetir contraseña: </label>
-            <input type="text" name="repetir-contrasena">
+            <input type="password" name="repetir-contrasena">
             <br>
             <input type="submit" value="Guardar">
             <input type="button" value="Volver">

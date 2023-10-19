@@ -1,12 +1,6 @@
 <?php
 
-    $conn = new mysqli("localhost", "root", getenv('DB_PASSWORD'), "coordinacion" ); 
-    if( $conn->connect_errno ) {
-        echo "Falla al conectarse a Mysql ( ". $conn->connect_errno . ") " .
-            $conn->connect_error ;
-    }else{
-        echo "Conecto";
-    }
+include('conexion.php');
 
 
     $username = $_POST['username'];

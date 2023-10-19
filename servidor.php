@@ -1,11 +1,6 @@
 <?php
 // Conexión a la base de datos (debes configurar esto)
-$conexion = new mysqli("localhost", "root", getenv('DB_PASSWORD'), "coordinacion");
-
-// Verifica la conexión
-if ($conexion->connect_error) {
-    die("Error de conexión a la base de datos: " . $conexion->connect_error);
-}
+include('conexion.php');
 
 // Obtén los datos del formulario
 

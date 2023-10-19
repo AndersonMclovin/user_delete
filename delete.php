@@ -1,5 +1,15 @@
 <?php
-include('conexion.php');
+
+
+
+include("conexion.php");
+
+//$conn = mysqli_connect("localhost", "root", getenv('DB_PASSWORD'), "coordinacion");
+
+if (!$conn) {
+    die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
+}
+
 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $user_id = $_GET['id'];

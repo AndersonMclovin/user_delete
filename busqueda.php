@@ -1,17 +1,17 @@
 <?php
-/*
-$conn = mysqli_connect("localhost", "root", getenv('DB_PASSWORD'), "coordinacion");
-
-if (!$conn) {
-    die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
-}*/
-
-include("conexion.php");
-
-$sql = "SELECT * FROM users";
-$result = mysqli_query($conn, $sql);
-
+    include('conexion.php');
+    $campo = $_POST["barra-busqueda"];
+    $result = null;
+    if ($campo!=null) {
+        $sql="SELECT * FROM users WHERE id = ".$campo;
+        $result = mysqli_query($conn, $sql);
+    } else {
+        echo "Campo vacio o no existen usuario";
+        return;
+    }
+    
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -48,6 +48,7 @@ $result = mysqli_query($conn, $sql);
             <button class="btn btn-success" onclick="location.href='./create.php'">Agregar</button>
             <input id="barra-busqueda" class="form-control me-2" name="barra-busqueda" type="search" placeholder="Buscar Usuario por id" aria-label="Search">
             <button id="btn-buscar" type="submit"><a>Buscar</a></button>
+            <button id="btn-buscar" type="button"><a href="index.php">Nueva busqueda</a></button>
         </form>
         <table class="table" id="tabla">
             <thead class="">
@@ -59,7 +60,7 @@ $result = mysqli_query($conn, $sql);
                 </tr>
             </thead>
             <tbody>
-                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                <?php if ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
                         <td><?php echo $row["id"]; ?></td>
                         <td><?php echo $row["nombre"]; ?></td>
@@ -109,6 +110,7 @@ $result = mysqli_query($conn, $sql);
             background: white;
             color:rgb(103,28,52);
             padding: 5px 15px;
+            margin-right : 10px;
         }
         #btn-buscar>a{
             color:rgb(103,28,52);

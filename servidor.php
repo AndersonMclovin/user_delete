@@ -1,6 +1,7 @@
 <?php
-// Conexión a la base de datos (debes configurar esto)
-include('conexion.php');
+
+
+include("conexion.php");
 
 // Obtén los datos del formulario
 
@@ -14,10 +15,13 @@ $password = $_POST['password'];
 
 if ($username !=null && $nombre !=null &&
 $email != null && $userID!=null){
+    
     // Actualiza el registro en la base de datos
-    if (count($password) > 0) {
+    if (!empty($password)) {
+        echo "if";
         $sql = "UPDATE USERS SET username='$username', email='$email', nombre='$nombre', password= sha2('$password', 256) WHERE id=$userID";
     }else{
+        echo "else";
         $sql = "UPDATE USERS SET username='$username', email='$email', nombre='$nombre' WHERE id=$userID";
     }
     

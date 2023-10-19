@@ -43,9 +43,9 @@ $result = mysqli_query($conn, $sql);
         <p class="titulo">
             <h1>GESTION DE USUARIOS</h1>
         </p>
+        <button class="btn btn-success" id="btn-agregar" onclick="location.href='./create.php'">Agregar</button>
+        <form action="busqueda.php" class="d-flex pb-3" role="search" method="post" id="busqueda">
             
-        <form action="busqueda.php" class="d-flex pb-3" role="search" method="post">
-            <button class="btn btn-success" onclick="location.href='./create.php'">Agregar</button>
             <input id="barra-busqueda" class="form-control me-2" name="barra-busqueda" type="search" placeholder="Buscar Usuario por id" aria-label="Search">
             <button id="btn-buscar" type="submit"><a>Buscar</a></button>
         </form>
@@ -121,6 +121,14 @@ $result = mysqli_query($conn, $sql);
             padding : 5px 20px;
             color: white;
             background:rgb(103,28,52);
+        }
+        #busqueda{
+            position: relative;
+            left: 80px;
+        }
+        #btn-agregar{
+            position: relative;
+            top: 38px;
         }
     </style>
 </body>
